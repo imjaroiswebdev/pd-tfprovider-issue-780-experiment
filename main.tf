@@ -26,8 +26,8 @@ resource "pagerduty_tag" "issue780" {
   label = "GH-ISSUE-780"
 }
 
-# resource "pagerduty_tag_assignment" "issue780_team" {
-#   tag_id      = pagerduty_tag.issue780.id
-#   entity_type = "teams"
-#   entity_id   = pagerduty_team.tfprov_issue780_team.id
-# }
+resource "pagerduty_tag_assignment" "issue780_team" {
+  tag_id      = pagerduty_tag.issue780.id
+  entity_type = "teams"
+  entity_id   = pagerduty_team.tfprov_issue780_team.id
+}
