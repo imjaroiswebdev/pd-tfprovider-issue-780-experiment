@@ -60,12 +60,31 @@ resource "pagerduty_team" "default" {
   name = local.team
 }
 
+resource "pagerduty_user" "team" {
+  for_each = toset(local.members)
+  name     = "bogus${each.key}"
+  email    = each.key
+}
+
+resource "pagerduty_user" "manager" {
+  name  = "Team Manage"
+  email = local.manager
+}
+
 data "pagerduty_user" "team" {
+  depends_on = [
+    pagerduty_team.default,
+  ]
+
   for_each = toset(local.members)
   email    = each.key
 }
 
 data "pagerduty_user" "manager" {
+  depends_on = [
+    pagerduty_user.manager,
+  ]
+
   email = local.manager
 }
 
