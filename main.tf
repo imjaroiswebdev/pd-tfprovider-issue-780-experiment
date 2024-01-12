@@ -16,8 +16,15 @@ terraform {
     }
   }
 }
+variable "PAGERDUTY_TOKEN" {
+  type        = string
+  description = "Your PagerDuty token from env vars like TF_VAR_PAGERDUTY_TOKEN or .tfvars file"
+  sensitive   = true
+}
 
-provider "pagerduty" {}
+provider "pagerduty" {
+  token = var.PAGERDUTY_TOKEN
+}
 
 resource "pagerduty_team" "tfprov_issue780_team" {
   name = "tfprov_issue780_team"
