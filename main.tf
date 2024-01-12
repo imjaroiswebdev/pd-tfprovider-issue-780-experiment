@@ -53,7 +53,7 @@ locals {
     "bogus5@pd.test",
   ]
   start   = "2023-11-27T14:30:00-07:00"
-  manager = "bogus1@pd.test"
+  manager = "bogusmanager@pd.test"
 }
 
 resource "pagerduty_team" "default" {
