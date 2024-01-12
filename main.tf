@@ -23,7 +23,8 @@ variable "PAGERDUTY_TOKEN" {
 }
 
 provider "pagerduty" {
-  token = var.PAGERDUTY_TOKEN
+  token                       = var.PAGERDUTY_TOKEN
+  skip_credentials_validation = true
 }
 
 resource "pagerduty_team" "tfprov_issue780_team" {
