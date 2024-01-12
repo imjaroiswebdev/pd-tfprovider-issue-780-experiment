@@ -63,7 +63,7 @@ resource "pagerduty_team" "default" {
 resource "pagerduty_user" "team" {
   for_each = toset(local.members)
   name     = "bogus${each.key}"
-  email    = each.key
+  email    = each.value
 }
 
 resource "pagerduty_user" "manager" {
@@ -77,7 +77,7 @@ data "pagerduty_user" "team" {
   ]
 
   for_each = toset(local.members)
-  email    = each.key
+  email    = each.value
 }
 
 data "pagerduty_user" "manager" {
