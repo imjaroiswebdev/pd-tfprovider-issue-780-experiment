@@ -73,7 +73,7 @@ resource "pagerduty_user" "manager" {
 
 data "pagerduty_user" "team" {
   depends_on = [
-    pagerduty_team.default,
+    pagerduty_user.team,
   ]
 
   for_each = toset(local.members)
