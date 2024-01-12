@@ -46,14 +46,14 @@ resource "pagerduty_tag_assignment" "tfprov_issue780_team_tag_whatever" {
 locals {
   team = "Test Team"
   members = [
-    "bogus1@pagerduty.com",
-    "bogus2@pagerduty.com",
-    "bogus3@pagerduty.com",
-    "bogus4@pagerduty.com",
-    "bogus5@pagerduty.com",
+    "bogus1@pd.test",
+    "bogus2@pd.test",
+    "bogus3@pd.test",
+    "bogus4@pd.test",
+    "bogus5@pd.test",
   ]
-  start = "2023-11-27T14:30:00-07:00"
-  manager = "bogus1@pagerduty.com"
+  start   = "2023-11-27T14:30:00-07:00"
+  manager = "bogus1@pd.test"
 }
 
 resource "pagerduty_team" "default" {
