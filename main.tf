@@ -121,3 +121,7 @@ resource "pagerduty_escalation_policy" "default" {
     }
   }
 }
+
+output "ep_default_id" {
+  value = pagerduty_escalation_policy.default.id
+}
