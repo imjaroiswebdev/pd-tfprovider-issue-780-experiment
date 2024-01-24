@@ -83,6 +83,11 @@ jobs:
     - name: Terraform Format
       run: terraform fmt -check
 
+    - name: Traceroute PagerDuty URL
+      run: |
+        /home/linuxbrew install inetutils
+        gtraceroute 'https://api.pagerduty.com'
+
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       run: |
