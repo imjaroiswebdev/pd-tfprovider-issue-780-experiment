@@ -86,9 +86,7 @@ jobs:
     - name: Traceroute PagerDuty URL
       run: |
         eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-        brew install inetutils
-        export PATH="/home/linuxbrew/.linuxbrew/opt/inetutils/libexec/gnubin:$PATH"
-        traceroute 'https://api.pagerduty.com'
+        traceroute
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
